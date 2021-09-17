@@ -1,11 +1,13 @@
 package com.weather.models.openweather.onecallapi;
 
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString
 public class FeelsLike{
-    public double day;
-    public double night;
-    public double eve;
-    public double morn;
+    private double day;
+    private double night;
+    private double eve;
+    private double morn;
 }

@@ -1,13 +1,15 @@
 package com.weather.models.openweather.onecallapi;
 
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString
 public class Temp{
-    public double day;
-    public double min;
-    public double max;
-    public double night;
-    public double eve;
-    public double morn;
+    private double day;
+    private double min;
+    private double max;
+    private double night;
+    private double eve;
+    private double morn;
 }
