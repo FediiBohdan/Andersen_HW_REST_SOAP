@@ -1,7 +1,7 @@
 package com.weather;
 
 import com.weather.parser.Parser;
-import com.weather.pojo.openweather.onecallapi.OpenWeatherRoot;
+import com.weather.models.openweather.onecallapi.OneCallRoot;
 
 import java.io.IOException;
 import java.net.URI;
@@ -27,7 +27,7 @@ public class App {
             e.printStackTrace();
         }
 
-        OpenWeatherRoot root = parser.parse(response.body());
+        OneCallRoot root = parser.parse(response.body());
         //System.out.println(root);
         System.out.println(root.getDaily());
         System.out.println(root.getDaily().get(0).getFeels_like());

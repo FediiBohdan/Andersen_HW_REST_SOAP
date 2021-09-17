@@ -1,4 +1,4 @@
-package com.weather.pojo.openweather.onecallapi;
+package com.weather.models.openweather.onecallapi;
 
 
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.ToString;
 import java.util.List;
 @Getter
 @ToString
-public class OpenWeatherRoot {
+public class OneCallRoot {
     public double lat;
     public double lon;
     public String timezone;

@@ -1,13 +1,13 @@
 package com.weather.parser;
 
 import com.google.gson.Gson;
-import com.weather.pojo.openweather.onecallapi.OpenWeatherRoot;
+import com.weather.models.openweather.onecallapi.OneCallRoot;
 
 public class Parser {
-    public OpenWeatherRoot parse(String json) {
+    public OneCallRoot parse(String json) {
         Gson gson = new Gson();
 
-        OpenWeatherRoot root = gson.fromJson(json, OpenWeatherRoot.class);
+        OneCallRoot root = gson.fromJson(json, OneCallRoot.class);
         return root;
     }
 }

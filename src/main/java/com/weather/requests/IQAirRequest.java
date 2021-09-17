@@ -1,6 +1,6 @@
 package com.weather.requests;
 
-import com.weather.pojo.iqair.IqAirRoot;
+import com.weather.models.iqair.IqAirRoot;
 
 public class IQAirRequest implements Request<IqAirRoot>{
 

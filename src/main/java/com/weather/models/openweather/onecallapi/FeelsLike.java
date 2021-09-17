@@ -1,12 +1,10 @@
-package com.weather.pojo.openweather.onecallapi;
+package com.weather.models.openweather.onecallapi;
 
 import lombok.ToString;
 
 @ToString
-public class Temp{
+public class FeelsLike{
     public double day;
-    public double min;
-    public double max;
     public double night;
     public double eve;
     public double morn;
