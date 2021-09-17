@@ -1,7 +1,7 @@
 package com.weather.parser;
 
 import com.google.gson.Gson;
-import com.weather.pojo.openweather.OpenWeatherRoot;
+import com.weather.pojo.openweather.onecallapi.OpenWeatherRoot;
 
 public class Parser {
     public OpenWeatherRoot parse(String json) {

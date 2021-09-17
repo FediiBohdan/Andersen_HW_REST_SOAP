@@ -1,4 +1,4 @@
-package com.weather.pojo.openweather;
+package com.weather.pojo.openweather.onecallapi;
 
 import lombok.ToString;
 

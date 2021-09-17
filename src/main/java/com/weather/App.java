@@ -1,7 +1,7 @@
 package com.weather;
 
 import com.weather.parser.Parser;
-import com.weather.pojo.openweather.OpenWeatherRoot;
+import com.weather.pojo.openweather.onecallapi.OpenWeatherRoot;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,5 +1,11 @@
 package com.weather.requests;
 
-public class OpenWeatherRequest {
+import com.weather.pojo.openweather.onecallapi.OpenWeatherRoot;
 
+public class OpenWeatherRequest implements Request<OpenWeatherRoot> {
+
+    @Override
+    public OpenWeatherRoot getResponse(String city) {
+        return null;
+    }
 }
