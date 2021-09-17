@@ -1,6 +1,7 @@
 package com.weather.parser;
 
 import com.google.gson.Gson;
+import com.weather.models.iqair.IqAirRoot;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
 
@@ -21,5 +22,13 @@ public class Parser {
         GeocodingRoot[] geocodingRoot = gson.fromJson(json, GeocodingRoot[].class);
 
         return geocodingRoot;
+    }
+
+    public IqAirRoot parseIqAir(String json) {
+        Gson gson = new Gson();
+
+        IqAirRoot iqAirRoot = gson.fromJson(json, IqAirRoot.class);
+
+        return iqAirRoot;
     }
 }
