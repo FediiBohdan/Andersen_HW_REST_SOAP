@@ -1,5 +1,6 @@
 package com.weather;
 
+import com.weather.models.iqair.IqAirRoot;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.parser.Parser;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
@@ -51,5 +52,22 @@ public class App {
 
         OpenWeatherRequest request1 = new OpenWeatherRequest();
         System.out.println(request1.getCoordinate("moscow"));
+
+
+
+        uri = "http://api.airvisual.com/v2/nearest_city?lat=55.7522&lon=37.6156&key=929c2f95-4429-44d2-adb2-4087f2d33a0c";
+
+        request = HttpRequest.newBuilder(URI.create(uri)).GET().build();
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        IqAirRoot iqAirRoot = parser.parseIqAir(response.body());
+        System.out.println(iqAirRoot);
     }
 }
