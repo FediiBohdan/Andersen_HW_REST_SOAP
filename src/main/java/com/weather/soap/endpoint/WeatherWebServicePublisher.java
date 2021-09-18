@@ -1,6 +1,6 @@
-package com.weather.endpoint;
+package com.weather.soap.endpoint;
 
-import com.weather.service.WeatherServiceImpl;
+import com.weather.soap.service.WeatherServiceImpl;
 
 import javax.xml.ws.Endpoint;
 

@@ -1,25 +1,22 @@
-package com.weather.models.iqair;
+package com.weather.soap.models.openweather.onecallapi;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
+import java.util.List;
 
 @Getter
-@Setter
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Weather {
-    private Date ts;
-    private float tp;
-    private float pr;
-    private float hu;
-    private double ws;
-    private float wd;
-    private String ic;
+public class Alert {
+    private String sender_name;
+    private String event;
+    private int start;
+    private int end;
+    private String description;
+    private List<String> tags;
 }

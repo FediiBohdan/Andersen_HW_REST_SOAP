@@ -19,14 +19,11 @@ public class App {
         Handler handler = new Handler();
 
         /*System.out.println(handler.getDateFromTimestamp("1632128400", "10800"));
-
         Long time = Instant.now().getEpochSecond();
         System.out.println(time);
         System.out.println(handler.getDateFromTimestamp(Long.toString(time), "10800"));
-
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("UTC+3"));
         System.out.println(dateTime);
-
         LocalDate today = LocalDate.parse(handler.getDateFromTimestamp(Long.toString(time), "10800").substring(0,10));
         System.out.println(today);*/
 
