@@ -1,4 +1,4 @@
-package com.weather.models.openweather.geocodingapi;
+package com.weather.soap.models.openweather.geocodingapi;
 
 import lombok.Getter;
 import lombok.ToString;

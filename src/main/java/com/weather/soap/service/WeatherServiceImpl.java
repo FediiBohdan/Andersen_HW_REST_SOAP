@@ -1,9 +1,9 @@
-package com.weather.service;
+package com.weather.soap.service;
 
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.weather.service.WeatherService")
+@WebService(endpointInterface = "com.weather.soap.service.WeatherService")
 public class WeatherServiceImpl implements WeatherService {
 
 

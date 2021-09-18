@@ -1,6 +1,6 @@
-package com.weather.requests;
+package com.weather.soap.requests;
 
-import com.weather.models.iqair.IqAirRoot;
+import com.weather.soap.models.iqair.IqAirRoot;
 
 public class IQAirRequest {
 

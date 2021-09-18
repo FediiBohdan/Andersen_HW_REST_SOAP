@@ -1,9 +1,8 @@
-package com.weather.parser;
+package com.weather.soap.parser;
 
 import com.google.gson.Gson;
-import com.weather.models.iqair.IqAirRoot;
-import com.weather.models.openweather.geocodingapi.GeocodingRoot;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
+import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
+import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
 
 import java.util.List;
 

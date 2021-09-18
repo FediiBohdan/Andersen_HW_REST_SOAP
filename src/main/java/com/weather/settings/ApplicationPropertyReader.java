@@ -16,9 +16,9 @@ public class ApplicationPropertyReader {
         }
         return instance;
     }
-    private Map<String,String> properties=this.setPropsApps();
-    public Map<String,String> setPropsApps()  {
-        Map<String,String> propsApps= new HashMap<>();
+    private Map<String, String> properties=this.setPropsApps();
+    public Map<String, String> setPropsApps()  {
+        Map<String, String> propsApps= new HashMap<>();
         String propFileName = "config.properties";
         try (InputStream input = ApplicationPropertyReader.class
                 .getClassLoader()
@@ -48,7 +48,4 @@ public class ApplicationPropertyReader {
     public Map<String, String> getProperties() {
         return properties;
     }
-
-
-
 }

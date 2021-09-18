@@ -1,8 +1,8 @@
-package com.weather.requests;
+package com.weather.soap.requests;
 
-import com.weather.models.openweather.geocodingapi.GeocodingRoot;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
-import com.weather.parser.Parser;
+import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
+import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
+import com.weather.soap.parser.Parser;
 import com.weather.settings.Settings;
 
 import java.io.IOException;
@@ -10,7 +10,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

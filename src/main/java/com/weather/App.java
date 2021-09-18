@@ -1,13 +1,14 @@
 package com.weather;
 
+import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
+import com.weather.soap.parser.Parser;
+import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
+import com.weather.soap.requests.OpenWeatherRequest;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.weather.models.iqair.IqAirRoot;
-import com.weather.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.models.openweather.onecallapi.Current;
-import com.weather.parser.Parser;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
-import com.weather.requests.OpenWeatherRequest;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -42,8 +43,9 @@ public class App {
 
         OneCallRoot root = parser.parseOneCall(response.body());
         //System.out.println(root);
-        System.out.println(root.getDaily());
-        System.out.println(root.getDaily().get(0).getFeels_like());
+
+//        System.out.println(root.getDaily());
+//        System.out.println(root.getDaily().get(0).getFeels_like());
 
         /*uri = "http://api.openweathermap.org/geo/1.0/direct?q=moscow&limit=1&appid=321d98c90ceee38339013157f778c010";
 

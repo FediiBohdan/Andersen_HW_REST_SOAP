@@ -1,6 +1,6 @@
-package com.weather.client;
+package com.weather.soap.client;
 
-import com.weather.service.WeatherService;
+import com.weather.soap.service.WeatherService;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;

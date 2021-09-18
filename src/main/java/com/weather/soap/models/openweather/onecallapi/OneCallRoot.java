@@ -1,4 +1,4 @@
-package com.weather.models.openweather.onecallapi;
+package com.weather.soap.models.openweather.onecallapi;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -12,11 +12,13 @@ import java.util.List;
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Alert {
-    private String sender_name;
-    private String event;
-    private int start;
-    private int end;
-    private String description;
-    private List<String> tags;
+public class OneCallRoot {
+    private double lat;
+    private double lon;
+    private String timezone;
+    private int timezone_offset;
+    private Current current;
+    private List<Daily> daily;
+    private List<Alert> alerts;
 }
+
