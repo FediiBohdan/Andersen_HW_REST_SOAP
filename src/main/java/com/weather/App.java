@@ -1,20 +1,29 @@
 package com.weather;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.weather.models.iqair.IqAirRoot;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
+import com.weather.models.openweather.onecallapi.Current;
 import com.weather.parser.Parser;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
 import com.weather.requests.OpenWeatherRequest;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
 
+import lombok.SneakyThrows;
+
+import javax.xml.bind.*;
+
 /* Только для тестов, можно удалить потом*/
 public class App {
+    @SneakyThrows
     public static void main(String[] args) {
         String uri = "https://api.openweathermap.org/data/2.5/onecall?lat=59.937500&lon=30.308611&exclude=minutely,hourly&appid=321d98c90ceee38339013157f778c010";
         Parser parser = new Parser();
@@ -69,5 +78,18 @@ public class App {
 
         IqAirRoot iqAirRoot = parser.parseIqAir(response.body());
         System.out.println(iqAirRoot);
+
+
+        // object to json
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        //System.out.println(gson.toJson(root.getCurrent()));
+
+        // object to xml
+        JAXBContext jaxbContext = JAXBContext.newInstance(Current.class);
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        StringWriter sw = new StringWriter();
+        marshaller.marshal(root.getCurrent(), sw);
+        //System.out.println(sw);
     }
 }
