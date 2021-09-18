@@ -1,6 +1,7 @@
 package com.weather.soap.models.openweather.onecallapi;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,15 +10,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @Getter
+@Setter
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Daily {
-    private int dt;
-    private int sunrise;
-    private int sunset;
-    private int moonrise;
-    private int moonset;
+public class Daily{
+    private String dt;
+    private String sunrise;
+    private String sunset;
+    private String moonrise;
+    private String moonset;
     private double moon_phase;
     private Temp temp;
     private FeelsLike feels_like;

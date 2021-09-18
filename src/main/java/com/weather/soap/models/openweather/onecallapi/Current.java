@@ -1,7 +1,9 @@
 package com.weather.soap.models.openweather.onecallapi;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,13 +11,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @Getter
+@Setter
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Current {
-    private int dt;
-    private int sunrise;
-    private int sunset;
+public class Current{
+    private String dt;
+    private String sunrise;
+    private String sunset;
     private double temp;
     private double feels_like;
     private int pressure;
@@ -24,7 +27,8 @@ public class Current {
     private float uvi;
     private int clouds;
     private int visibility;
-    private int wind_speed;
-    private int wind_deg;
+    private float wind_speed;
+    private float wind_deg;
     private List<Weather> weather;
 }
+
