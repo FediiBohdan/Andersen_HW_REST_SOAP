@@ -1,34 +1,54 @@
 package com.weather.parser;
 
 import com.google.gson.Gson;
-import com.weather.models.iqair.IqAirRoot;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
 
-import java.util.List;
+import java.net.http.HttpResponse;
+
 
 public class Parser {
 
-    public OneCallRoot parseOneCall(String json) {
+    public <T> T getResponseEntity(HttpResponse<String> response, Class<T> tClass) {
         Gson gson = new Gson();
+        String json = response.body();
 
-        OneCallRoot root = gson.fromJson(json, OneCallRoot.class);
-        return root;
+        T responseEntity = gson.fromJson(json, tClass);
+
+
+        return responseEntity;
     }
 
-    public GeocodingRoot[] parseGeocoding(String json) {
+    /*public OneCallRoot parseOneCall(String json) {
         Gson gson = new Gson();
 
-        GeocodingRoot[] geocodingRoot = gson.fromJson(json, GeocodingRoot[].class);
+        OneCallRoot oneCallRoot = gson.fromJson(json, OneCallRoot.class);
+
+        return oneCallRoot;
+    }*/
+
+    public GeocodingRoot parseGeocoding(String json) {
+        Gson gson = new Gson();
+
+        GeocodingRoot geocodingRoot = gson.fromJson(json, GeocodingRoot[].class)[0];
 
         return geocodingRoot;
     }
 
-    public IqAirRoot parseIqAir(String json) {
+    /*public IqAirRoot parseIqAir(String json) {
         Gson gson = new Gson();
 
         IqAirRoot iqAirRoot = gson.fromJson(json, IqAirRoot.class);
 
         return iqAirRoot;
-    }
+    }*/
+
+   /* public <T> T[] getResponseEntityFromArray(HttpResponse<String> response, Class<T> tClass) {
+        Gson gson = new Gson();
+        String json = response.body();
+        T[] responseArray = null;
+
+        responseArray = (T[]) gson.fromJson(json, Object[].class);
+
+        return responseArray;
+    }*/
 }

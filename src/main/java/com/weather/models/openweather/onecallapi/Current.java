@@ -19,7 +19,7 @@ public class Current{
     private float uvi;
     private int clouds;
     private int visibility;
-    private int wind_speed;
-    private int wind_deg;
+    private float wind_speed;
+    private float wind_deg;
     private List<Weather> weather;
 }
