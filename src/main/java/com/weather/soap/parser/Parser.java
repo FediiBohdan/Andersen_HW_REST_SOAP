@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
 
+import java.util.List;
+
 public class Parser {
 
     public OneCallRoot parseOneCall(String json) {
@@ -19,5 +21,13 @@ public class Parser {
         GeocodingRoot[] geocodingRoot = gson.fromJson(json, GeocodingRoot[].class);
 
         return geocodingRoot;
+    }
+
+    public IqAirRoot parseIqAir(String json) {
+        Gson gson = new Gson();
+
+        IqAirRoot iqAirRoot = gson.fromJson(json, IqAirRoot.class);
+
+        return iqAirRoot;
     }
 }

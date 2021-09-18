@@ -1,4 +1,4 @@
-package com.weather.soap.models.openweather.onecallapi;
+package com.weather.models.iqair;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -11,9 +11,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FeelsLike {
-    private double day;
-    private double night;
-    private double eve;
-    private double morn;
+public class Data {
+    private String city;
+    private String state;
+    private String country;
+    private Location location;
+    private Current current;
 }

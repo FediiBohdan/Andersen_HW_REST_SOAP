@@ -3,11 +3,16 @@ package com.weather.soap.models.openweather.onecallapi;
 import lombok.Getter;
 import lombok.ToString;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @Getter
 @ToString
-public class Current{
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Current {
     private int dt;
     private int sunrise;
     private int sunset;
