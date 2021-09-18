@@ -3,6 +3,7 @@ package com.weather.soap.parser;
 import com.google.gson.Gson;
 import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
+import com.weather.soap.models.iqair.IqAirRoot;
 
 import java.util.List;
 

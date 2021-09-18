@@ -7,8 +7,8 @@ import com.weather.soap.requests.OpenWeatherRequest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.weather.models.iqair.IqAirRoot;
-import com.weather.models.openweather.onecallapi.Current;
+import com.weather.soap.models.iqair.IqAirRoot;
+import com.weather.soap.models.openweather.onecallapi.Current;
 
 import java.io.IOException;
 import java.io.StringWriter;
