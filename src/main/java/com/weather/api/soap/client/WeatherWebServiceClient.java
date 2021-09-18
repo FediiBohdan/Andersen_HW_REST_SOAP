@@ -1,12 +1,15 @@
-package com.weather.soap.client;
+package com.weather.api.soap.client;
 
-import com.weather.soap.service.WeatherService;
+import com.weather.api.soap.service.WeatherService;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * TODO  * Delete later
+ */
 public class WeatherWebServiceClient {
     public static void main(String[] args) throws MalformedURLException {
         URL url = new URL("http://localhost:8080/hello?wsdl");

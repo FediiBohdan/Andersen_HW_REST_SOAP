@@ -1,4 +1,4 @@
-package com.weather.soap.service;
+package com.weather.api.soap.service;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
