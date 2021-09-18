@@ -1,35 +1,49 @@
 package com.weather;
 
+import com.weather.handlers.Handler;
 import com.weather.models.iqair.IqAirRoot;
 import com.weather.parser.Parser;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
-import com.weather.requests.IQAirRequest;
-import com.weather.requests.OpenWeatherRequest;
+import com.weather.requests.ApiRequest;
 
-
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 
 /* Только для тестов, можно удалить потом*/
 public class App {
     public static void main(String[] args) {
-        String uri = "https://api.openweathermap.org/data/2.5/onecall?lat=59.937500&lon=30.308611&exclude=minutely,hourly&appid=321d98c90ceee38339013157f778c010";
 
-        OpenWeatherRequest request = new OpenWeatherRequest(new Parser());
+        Handler handler = new Handler();
+
+        /*System.out.println(handler.getDateFromTimestamp("1632128400", "10800"));
+
+        Long time = Instant.now().getEpochSecond();
+        System.out.println(time);
+        System.out.println(handler.getDateFromTimestamp(Long.toString(time), "10800"));
+
+        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("UTC+3"));
+        System.out.println(dateTime);
+
+        LocalDate today = LocalDate.parse(handler.getDateFromTimestamp(Long.toString(time), "10800").substring(0,10));
+        System.out.println(today);*/
 
 
-        OneCallRoot root = request.getResponse("moscow");
+        ApiRequest request = new ApiRequest(new Parser());
+
+
+        OneCallRoot root = request.getOneCallResponse("moscow");
 
         System.out.println("_____________Open Weather____________");
-        System.out.println(root.getAlerts());
+        System.out.println(handler.getCurrentWeather(root));
+        //System.out.println(handler.getNextDay(root));
+        System.out.println(handler.getAlerts(root));
 
-        IQAirRequest iqAirRequest = new IQAirRequest(new Parser());
-        IqAirRoot iqAirRoot= iqAirRequest.getResponse("sankt-peterburg");
+        IqAirRoot iqAirRoot= request.getIqAirResponse("sankt-peterburg");
 
         System.out.println("__________IQ AIR ____________");
         System.out.println(iqAirRoot);
-
-
-        //System.out.println(request.getCoordinate("moscow"));
-
     }
 }
