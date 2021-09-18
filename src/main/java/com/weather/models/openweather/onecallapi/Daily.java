@@ -1,18 +1,20 @@
 package com.weather.models.openweather.onecallapi;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
 
 @Getter
+@Setter
 @ToString
 public class Daily{
-    private int dt;
-    private int sunrise;
-    private int sunset;
-    private int moonrise;
-    private int moonset;
+    private String dt;
+    private String sunrise;
+    private String sunset;
+    private String moonrise;
+    private String moonset;
     private double moon_phase;
     private Temp temp;
     private FeelsLike feels_like;

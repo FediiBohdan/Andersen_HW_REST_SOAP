@@ -1,16 +1,18 @@
 package com.weather.models.openweather.onecallapi;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
 
 @Getter
+@Setter
 @ToString
 public class Current{
-    private int dt;
-    private int sunrise;
-    private int sunset;
+    private String dt;
+    private String sunrise;
+    private String sunset;
     private double temp;
     private double feels_like;
     private int pressure;
