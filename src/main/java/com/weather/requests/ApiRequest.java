@@ -1,5 +1,6 @@
 package com.weather.requests;
 
+import com.weather.models.iqair.IqAirRoot;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
 import com.weather.parser.Parser;
@@ -16,16 +17,16 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OpenWeatherRequest {
+public class ApiRequest {
     private Parser parser;
     private HttpClient client;
 
-    public OpenWeatherRequest(Parser parser) {
+    public ApiRequest(Parser parser) {
         this.parser = parser;
         this.client = HttpClient.newHttpClient();
     }
 
-    public OneCallRoot getResponse(String city) {
+    public OneCallRoot getOneCallResponse(String city) {
         URI uri = null;
         HttpResponse<String> response = null;
         OneCallRoot oneCallRoot = new OneCallRoot();
@@ -48,13 +49,51 @@ public class OpenWeatherRequest {
                 oneCallRoot = parser.getResponseEntity(response, OneCallRoot.class);
             }
         } catch (URISyntaxException | IOException | InterruptedException e) {
+            // TODO add logger
             e.printStackTrace();
         }
 
         return oneCallRoot;
     }
 
-    public Map<String, String> getCoordinate(String city) {
+
+
+    public IqAirRoot getIqAirResponse(String city) {
+        URI uri = null;
+        HttpResponse<String> response = null;
+        IqAirRoot iqAirRoot = new IqAirRoot();
+
+        Map<String, String> coordinates = getCoordinate(city);
+
+        try {
+            uri = new URIBuilder(Settings.IQAIR_URL)
+                    .addParameter("lat", coordinates.get("lat"))
+                    .addParameter("lon", coordinates.get("lon"))
+                    .addParameter("key", Settings.IQAIR_KEY)
+                    .build();
+
+
+
+            HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+
+            if (response.statusCode() == 200) {
+                iqAirRoot = parser.getResponseEntity(response, IqAirRoot.class);
+            }
+        } catch (URISyntaxException | IOException | InterruptedException e) {
+            // TODO add logger
+            e.printStackTrace();
+        }
+
+        return iqAirRoot;
+    }
+
+
+
+
+
+    private Map<String, String> getCoordinate(String city) {
         URI uri = null;
         HttpResponse<String> response = null;
         Map<String, String> coordinates = new HashMap<>();
@@ -74,6 +113,7 @@ public class OpenWeatherRequest {
                 coordinates.put("lon", geocodingRoot.getLon());
             }
         } catch (URISyntaxException | IOException | InterruptedException e) {
+            // TODO add logger
             e.printStackTrace();
         }
 
