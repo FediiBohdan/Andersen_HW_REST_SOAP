@@ -1,4 +1,4 @@
-package com.weather.soap.models.openweather.onecallapi;
+package com.weather.models.openweather.onecallapi;
 
 import lombok.Getter;
 import lombok.Setter;

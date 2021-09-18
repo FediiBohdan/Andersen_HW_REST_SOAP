@@ -1,13 +1,9 @@
-package com.weather.soap.parser;
+package com.weather.parser;
 
 import com.google.gson.Gson;
 import com.weather.models.openweather.geocodingapi.GeocodingRoot;
-import com.weather.soap.models.openweather.geocodingapi.GeocodingRoot;
-import com.weather.soap.models.openweather.onecallapi.OneCallRoot;
-import com.weather.soap.models.iqair.IqAirRoot;
 
 import java.net.http.HttpResponse;
-
 
 public class Parser {
 

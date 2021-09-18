@@ -6,11 +6,6 @@ import com.weather.parser.Parser;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
 import com.weather.requests.ApiRequest;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 
 /* Только для тестов, можно удалить потом*/
 public class App {
