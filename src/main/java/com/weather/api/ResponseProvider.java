@@ -40,8 +40,6 @@ public class ResponseProvider {
         return handler.getCurrentWeather(apiRequest.getOneCallResponse(city));
     }
 
-
-
     public Daily getTomorrow(String city) {
         return handler.getNextDay(apiRequest.getOneCallResponse(city));
     }

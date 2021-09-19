@@ -1,6 +1,5 @@
 package com.weather;
 
-import com.weather.api.rest.WeatherRestServlet;
 import com.weather.handlers.Handler;
 import com.weather.models.iqair.IqAirRoot;
 import com.weather.parser.Parser;
