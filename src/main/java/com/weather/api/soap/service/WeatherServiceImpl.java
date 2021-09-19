@@ -12,7 +12,11 @@ import java.util.List;
 
 @WebService(endpointInterface = "com.weather.api.soap.service.WeatherService")
 public class WeatherServiceImpl implements WeatherService {
-    ResponseProvider responseProvider = new ResponseProvider();
+    private final ResponseProvider responseProvider;
+
+    public WeatherServiceImpl() {
+        this.responseProvider = new ResponseProvider();
+    }
 
     @Override
     @WebMethod
