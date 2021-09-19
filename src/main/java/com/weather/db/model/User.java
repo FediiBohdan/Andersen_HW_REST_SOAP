@@ -19,6 +19,30 @@ public class User {
     public LocalDateTime dateOfCreation;
     public Boolean isDeleted;
 
+    public User(String name, String email, String country, String city) {
+        this.name = name;
+        this.email = email;
+        this.country = country;
+        this.city = city;
+    }
+
+    public User(String name, String email, String country, String city, LocalDateTime dateOfCreation) {
+        this.name = name;
+        this.email = email;
+        this.country = country;
+        this.city = city;
+        this.dateOfCreation = dateOfCreation;
+    }
+
+    public User(long id, String name, String email, String country, String city, LocalDateTime dateOfLastUpdate) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.country = country;
+        this.city = city;
+        this.dateOfLastUpdate = dateOfLastUpdate;
+    }
+
     public User(long id, String name, String email, String country, String city, LocalDateTime dateOfLastUpdate, LocalDateTime dateOfCreation, Boolean isDeleted) {
         this.id = id;
         this.name = name;
