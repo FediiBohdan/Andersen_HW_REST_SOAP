@@ -70,13 +70,13 @@ public class WeatherRestServlet extends HttpServlet {
             stringWriter.append("No such type of forecast");
             switch (param) {
                 case "current":
-                    stringWriter = objectToXml(Current.class, responseProvider.getCurrentForecast(city));
+                    stringWriter = objectToXml(Current.class, responseProvider.getCurrentForecast(city, units));
                     break;
                 case "tomorrow":
-                    stringWriter = objectToXml(Daily.class, responseProvider.getTomorrow(city));
+                    stringWriter = objectToXml(Daily.class, responseProvider.getTomorrow(city, units));
                     break;
                 case "alerts": /* TODO inspect this case */
-                    stringWriter = objectToXml(Alert.class, responseProvider.getNationalWeatherAlerts(city));
+                    stringWriter = objectToXml(Alert.class, responseProvider.getNationalWeatherAlerts(city, units));
                     break;
                 case "pollution":
                     stringWriter = objectToXml(Pollution.class, responseProvider.getAirPollutionByIp(city));
