@@ -1,33 +1,37 @@
 package com.weather.api.soap.service;
 
-import com.weather.db.model.User;
+import com.weather.models.iqair.Pollution;
+import com.weather.models.openweather.onecallapi.Alert;
+import com.weather.models.openweather.onecallapi.Current;
+import com.weather.models.openweather.onecallapi.Daily;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import java.util.List;
 
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface WeatherService {
 
     @WebMethod
-    String getCurrentForecastByCity(String city);
+    Current getCurrentForecastByCity(String city, String units);
 
     @WebMethod
     String getYesterdayForecastByCity(String city);
 
     @WebMethod
-    String getTomorrowForecastByCity(String city);
+    Daily getTomorrowForecastByCity(String city, String units);
+
+//    @WebMethod
+//    List<Alert> getNationalWeatherAlerts(String city, String units);
 
     @WebMethod
-    String getNationalWeatherAlerts(String city);
+    Pollution getAirPollutionByIp(String city);
 
-    @WebMethod
-    String getAirPollutionByIp(String city);
-
-    @WebMethod
+    /*@WebMethod
     void saveUser(User user);
 
     @WebMethod
-    void updateUserCity(User user);
+    void updateUserCity(User user);*/
 }

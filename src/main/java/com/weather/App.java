@@ -1,6 +1,5 @@
 package com.weather;
 
-import com.weather.api.rest.WeatherRestServlet;
 import com.weather.handlers.Handler;
 import com.weather.models.iqair.IqAirRoot;
 import com.weather.parser.Parser;
@@ -27,7 +26,7 @@ public class App {
         ApiRequest request = new ApiRequest(new Parser());
 
 
-        OneCallRoot root = request.getOneCallResponse("moscow");
+        OneCallRoot root = request.getOneCallResponse("moscow", "");
 
         System.out.println("_____________Open Weather____________");
         System.out.println(handler.getCurrentWeather(root));
