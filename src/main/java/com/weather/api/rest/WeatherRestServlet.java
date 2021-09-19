@@ -47,7 +47,6 @@ public class WeatherRestServlet extends HttpServlet {
         String units = req.getParameter("units");
         String param = req.getParameter("time");
 
-
         if ("json".equalsIgnoreCase(format)) {
             String json = "No such type of forecast";
             switch (param) {
