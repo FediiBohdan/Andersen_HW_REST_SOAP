@@ -1,5 +1,7 @@
 package com.weather.handlers;
 
+import com.weather.models.iqair.IqAirRoot;
+import com.weather.models.iqair.Pollution;
 import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
