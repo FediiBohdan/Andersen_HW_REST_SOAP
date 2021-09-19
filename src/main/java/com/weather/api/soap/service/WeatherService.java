@@ -25,9 +25,9 @@ public interface WeatherService {
     @WebMethod
     String getAirPollutionByIp(String city);
 
-    @WebMethod
+    /*@WebMethod
     void saveUser(User user);
 
     @WebMethod
-    void updateUserCity(User user);
+    void updateUserCity(User user);*/
 }
