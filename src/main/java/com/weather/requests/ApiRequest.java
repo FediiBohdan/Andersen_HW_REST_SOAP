@@ -17,6 +17,7 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class ApiRequest {
     private Parser parser;
     private HttpClient client;
@@ -26,10 +27,12 @@ public class ApiRequest {
         this.client = HttpClient.newHttpClient();
     }
 
-    public OneCallRoot getOneCallResponse(String city) {
+    public OneCallRoot getOneCallResponse(String city, String units) {
         URI uri = null;
         HttpResponse<String> response = null;
         OneCallRoot oneCallRoot = new OneCallRoot();
+
+        if (units == null) units = "metric";
 
         Map<String, String> coordinates = getCoordinate(city);
 
@@ -38,6 +41,7 @@ public class ApiRequest {
                     .addParameter("lat", coordinates.get("lat"))
                     .addParameter("lon", coordinates.get("lon"))
                     .addParameter("exclude", "minutely,hourly")
+                    .addParameter("units", units)
                     .addParameter("appid", Settings.OPENWEATHER_TOKEN)
                     .build();
             System.out.println(uri.toString());
@@ -46,7 +50,7 @@ public class ApiRequest {
             System.out.println(response.body());
 
             if (response.statusCode() == 200) {
-                oneCallRoot = parser.getResponseEntity(response, OneCallRoot.class);
+                oneCallRoot = parser.getResponseEntity(response.body(), OneCallRoot.class);
             }
         } catch (URISyntaxException | IOException | InterruptedException e) {
             // TODO add logger
@@ -55,7 +59,6 @@ public class ApiRequest {
 
         return oneCallRoot;
     }
-
 
 
     public IqAirRoot getIqAirResponse(String city) {
@@ -73,13 +76,12 @@ public class ApiRequest {
                     .build();
 
 
-
             HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 
             if (response.statusCode() == 200) {
-                iqAirRoot = parser.getResponseEntity(response, IqAirRoot.class);
+                iqAirRoot = parser.getResponseEntity(response.body(), IqAirRoot.class);
             }
         } catch (URISyntaxException | IOException | InterruptedException e) {
             // TODO add logger
@@ -88,9 +90,6 @@ public class ApiRequest {
 
         return iqAirRoot;
     }
-
-
-
 
 
     private Map<String, String> getCoordinate(String city) {

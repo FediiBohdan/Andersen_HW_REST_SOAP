@@ -2,11 +2,6 @@ package com.weather.api.rest;
 
 import com.google.gson.Gson;
 import com.weather.api.ResponseProvider;
-import com.weather.handlers.Handler;
-import com.weather.models.openweather.onecallapi.Current;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
-import com.weather.parser.Parser;
-import com.weather.requests.ApiRequest;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -38,20 +33,21 @@ public class WeatherRestServlet extends HttpServlet {
 
         String format = req.getParameter("accept");
         String city = req.getParameter("city");
-
+        String units = req.getParameter("units");
         String param = req.getParameter("time");
+
 
         if ("json".equalsIgnoreCase(format)) {
             String json = "No such type of forecast";
             switch (param) {
                 case "current":
-                    json = gson.toJson(responseProvider.getCurrentForecast(city));
+                    json = gson.toJson(responseProvider.getCurrentForecast(city, units));
                     break;
                 case "tomorrow":
-                    json = gson.toJson(responseProvider.getTomorrow(city));
+                    json = gson.toJson(responseProvider.getTomorrow(city, units));
                     break;
                 case "alerts":
-                    json = gson.toJson(responseProvider.getNationalWeatherAlerts(city));
+                    json = gson.toJson(responseProvider.getNationalWeatherAlerts(city, units));
                     break;
                 case "pollution":
                     json = gson.toJson(responseProvider.getAirPollutionByIp(city));
