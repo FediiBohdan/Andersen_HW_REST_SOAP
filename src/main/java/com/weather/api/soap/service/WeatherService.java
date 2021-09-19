@@ -1,5 +1,7 @@
 package com.weather.api.soap.service;
 
+import com.weather.db.model.User;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -18,8 +20,14 @@ public interface WeatherService {
     String getTomorrowForecastByCity(String city);
 
     @WebMethod
-    String getNationalWeatherAlerts(String country);
+    String getNationalWeatherAlerts(String city);
 
     @WebMethod
-    String getAirPollutionByIp(String ip);
+    String getAirPollutionByIp(String city);
+
+    @WebMethod
+    void saveUser(User user);
+
+    @WebMethod
+    void updateUserCity(User user);
 }
