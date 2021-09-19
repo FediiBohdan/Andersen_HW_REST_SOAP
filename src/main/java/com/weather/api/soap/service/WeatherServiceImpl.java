@@ -34,7 +34,7 @@ public class WeatherServiceImpl implements WeatherService {
         return null;
     }
 
-    @Override
+    /*@Override
     public void saveUser(User user) {
 
     }
@@ -42,5 +42,5 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public void updateUserCity(User user) {
 
-    }
+    }*/
 }

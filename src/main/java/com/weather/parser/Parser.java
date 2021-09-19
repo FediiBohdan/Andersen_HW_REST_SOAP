@@ -7,11 +7,11 @@ import java.net.http.HttpResponse;
 
 public class Parser {
 
-    public <T> T getResponseEntity(HttpResponse<String> response, Class<T> tClass) {
+    public <T> T getResponseEntity(String response, Class<T> tClass) {
         Gson gson = new Gson();
-        String json = response.body();
 
-        T responseEntity = gson.fromJson(json, tClass);
+
+        T responseEntity = gson.fromJson(response, tClass);
 
 
         return responseEntity;
