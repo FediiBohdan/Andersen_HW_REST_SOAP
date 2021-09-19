@@ -36,18 +36,18 @@ public class ResponseProvider {
     /**
      * Method for unauthorized user
      * */
-    public Current getCurrentForecast(String city) {
-        return handler.getCurrentWeather(apiRequest.getOneCallResponse(city));
+    public Current getCurrentForecast(String city, String units) {
+        return handler.getCurrentWeather(apiRequest.getOneCallResponse(city, units));
     }
 
 
 
-    public Daily getTomorrow(String city) {
-        return handler.getNextDay(apiRequest.getOneCallResponse(city));
+    public Daily getTomorrow(String city, String units) {
+        return handler.getNextDay(apiRequest.getOneCallResponse(city, units));
     }
 
-    public List<Alert> getNationalWeatherAlerts(String city) {
-        return handler.getAlerts(apiRequest.getOneCallResponse(city));
+    public List<Alert> getNationalWeatherAlerts(String city, String units) {
+        return handler.getAlerts(apiRequest.getOneCallResponse(city, units));
     }
 
     public Pollution getAirPollutionByIp(String city) {

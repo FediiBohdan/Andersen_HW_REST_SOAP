@@ -27,7 +27,7 @@ public class App {
         ApiRequest request = new ApiRequest(new Parser());
 
 
-        OneCallRoot root = request.getOneCallResponse("moscow");
+        OneCallRoot root = request.getOneCallResponse("moscow", "");
 
         System.out.println("_____________Open Weather____________");
         System.out.println(handler.getCurrentWeather(root));
