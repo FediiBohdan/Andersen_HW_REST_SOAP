@@ -32,7 +32,7 @@ public class UserDaoImpl implements CRUDDao {
     private static final String DELETE_USER_BY_ID="UPDATE andersen.User SET " +
             "isDeleted=TRUE WHERE id=? returning id;";
     private static final String UPDATE_USER="UPDATE andersen.User SET" +
-            "name=?, email=?, country_id=?, city_id=? WHERE id=? returning id;";
+            "name=?, email=?, country_id=?, city_id=?,dateOfLastUpdate=? WHERE id=? returning id;";
     private static final String ALL_COUNTRY_ORDERED_BY_NAME= "SELECT * FROM andersen.Country order by name;";
     private static final String FIND_CITIES_BY_COUNTRY_ORDERED_BY_NAME="SELECT * FROM andersen.City " +
             "where country_id=? order by name;";
@@ -148,6 +148,7 @@ public class UserDaoImpl implements CRUDDao {
             preparedStatement.setString(2,user.getEmail());
             preparedStatement.setShort(3,User.getCountries().get(user.getCountry()).getId());
             preparedStatement.setLong(4,User.getCities().get(user.getCity()).getId());
+            preparedStatement.setObject(5,LocalDateTime.now());
             int rowAffected =preparedStatement.executeUpdate();
             if (rowAffected>0) {
                 result="success";

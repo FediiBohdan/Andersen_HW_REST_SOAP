@@ -26,6 +26,11 @@ public class User {
         this.city = city;
     }
 
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public User(String name, String email, String country, String city, LocalDateTime dateOfCreation) {
         this.name = name;
         this.email = email;

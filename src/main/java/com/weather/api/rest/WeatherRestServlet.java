@@ -12,6 +12,7 @@ import com.weather.parser.Parser;
 import com.weather.requests.ApiRequest;
 import com.weather.service.UserService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -76,9 +77,9 @@ public class WeatherRestServlet extends HttpServlet {
               try{
                   String name = req.getParameter("name");
                   String email = req.getParameter("email");
-                  String country = req.getParameter("country");
-                  String city = req.getParameter("city");
-                  UserService.addUser(new User(name,email,country,city));
+                  Short country_id = Short.parseShort("country_id");
+                  Long city_id = Long.parseLong("city_id");
+                  UserService.addUser(new User(name,email),country_id,city_id);
                   resp.sendRedirect(req.getContextPath());
               }catch (Exception ex) {
                   resp.setStatus(401);
