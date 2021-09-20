@@ -1,6 +1,5 @@
 package com.weather.api;
 
-import com.google.gson.Gson;
 import com.weather.db.model.User;
 import com.weather.handlers.Handler;
 import com.weather.models.iqair.IqAirRoot;
@@ -8,7 +7,6 @@ import com.weather.models.iqair.Pollution;
 import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
 import com.weather.parser.Parser;
 import com.weather.requests.ApiRequest;
 
@@ -27,7 +25,7 @@ public class ResponseProvider {
 
     /**
      * Method for authorized user
-     * */
+     */
     // TODO change accepted parameter, if you need
     public Current getCurrentForecast(int userId) {
         return null;
@@ -35,7 +33,7 @@ public class ResponseProvider {
 
     /**
      * Method for unauthorized user
-     * */
+     */
     public Current getCurrentForecast(String city, String units) {
         return handler.getCurrentWeather(apiRequest.getOneCallResponse(city, units));
     }

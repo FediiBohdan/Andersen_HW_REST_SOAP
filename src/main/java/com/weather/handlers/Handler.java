@@ -1,7 +1,5 @@
 package com.weather.handlers;
 
-import com.weather.models.iqair.IqAirRoot;
-import com.weather.models.iqair.Pollution;
 import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
@@ -24,8 +22,7 @@ public class Handler {
         return current;
     }
 
-
-    public List<Alert> getAlerts(OneCallRoot oneCallRoot) throws NullPointerException{
+    public List<Alert> getAlerts(OneCallRoot oneCallRoot) throws NullPointerException {
         List<Alert> alerts = oneCallRoot.getAlerts();
         if (alerts.size() == 0) return null;
         String offset = oneCallRoot.getTimezone_offset();
@@ -70,6 +67,4 @@ public class Handler {
         date = instant.toString();
         return date;
     }
-
-
 }

@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class User {
 
-    public static Map<String, Country> countries=new HashMap<>();
-    public static Map<String, City> cities=new HashMap<>();
-//хранить в базе
+    public static Map<String, Country> countries = new HashMap<>();
+    public static Map<String, City> cities = new HashMap<>();
+    //хранить в базе
     public long id;
     public String name; // имя
     public String email;
@@ -69,7 +69,7 @@ public class User {
         this.isDeleted = isDeleted;
     }
 
-    public User(long id, String name,  String email, String country, String city) {
+    public User(long id, String name, String email, String country, String city) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -92,7 +92,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public String getEmail() {
         return email;

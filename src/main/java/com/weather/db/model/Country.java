@@ -37,5 +37,4 @@ public class Country {
         this.cities = cities;
     }
 
-
 }

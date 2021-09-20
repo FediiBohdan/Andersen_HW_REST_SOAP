@@ -2,8 +2,8 @@ package com.weather;
 
 import com.weather.handlers.Handler;
 import com.weather.models.iqair.IqAirRoot;
-import com.weather.parser.Parser;
 import com.weather.models.openweather.onecallapi.OneCallRoot;
+import com.weather.parser.Parser;
 import com.weather.requests.ApiRequest;
 
 
@@ -22,9 +22,7 @@ public class App {
         LocalDate today = LocalDate.parse(handler.getDateFromTimestamp(Long.toString(time), "10800").substring(0,10));
         System.out.println(today);*/
 
-
         ApiRequest request = new ApiRequest(new Parser());
-
 
         OneCallRoot root = request.getOneCallResponse("moscow", "");
 
@@ -33,7 +31,7 @@ public class App {
         //System.out.println(handler.getNextDay(root));
         System.out.println(handler.getAlerts(root));
 
-        IqAirRoot iqAirRoot= request.getIqAirResponse("sankt-peterburg");
+        IqAirRoot iqAirRoot = request.getIqAirResponse("sankt-peterburg");
 
         System.out.println("__________IQ AIR ____________");
         System.out.println(iqAirRoot);

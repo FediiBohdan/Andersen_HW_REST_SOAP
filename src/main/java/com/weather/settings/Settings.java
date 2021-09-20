@@ -8,7 +8,4 @@ public class Settings {
 
     public static final String IQAIR_KEY = "929c2f95-4429-44d2-adb2-4087f2d33a0c";
     public static final String IQAIR_URL = "http://api.airvisual.com/v2/nearest_city";
-
-
-
 }

@@ -2,14 +2,11 @@ package com.weather.api.soap.service;
 
 import com.weather.api.ResponseProvider;
 import com.weather.models.iqair.Pollution;
-import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebService(endpointInterface = "com.weather.api.soap.service.WeatherService")
 public class WeatherServiceImpl implements WeatherService {

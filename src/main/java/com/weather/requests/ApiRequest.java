@@ -7,7 +7,6 @@ import com.weather.parser.Parser;
 import com.weather.settings.Settings;
 import org.apache.http.client.utils.URIBuilder;
 
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -16,7 +15,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class ApiRequest {
     private Parser parser;
@@ -64,7 +62,6 @@ public class ApiRequest {
         return oneCallRoot;
     }
 
-
     public IqAirRoot getIqAirResponse(String city) {
         URI uri = null;
         HttpResponse<String> response = null;
@@ -79,10 +76,8 @@ public class ApiRequest {
                     .addParameter("key", Settings.IQAIR_KEY)
                     .build();
 
-
             HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
 
             if (response.statusCode() == 200) {
                 iqAirRoot = parser.getResponseEntity(response.body(), IqAirRoot.class);
@@ -94,7 +89,6 @@ public class ApiRequest {
 
         return iqAirRoot;
     }
-
 
     private Map<String, String> getCoordinate(String city) {
         URI uri = null;
@@ -122,6 +116,5 @@ public class ApiRequest {
 
         return coordinates;
     }
-
 
 }

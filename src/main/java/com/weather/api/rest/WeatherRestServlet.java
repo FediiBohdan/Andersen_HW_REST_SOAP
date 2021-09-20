@@ -2,34 +2,26 @@ package com.weather.api.rest;
 
 import com.google.gson.Gson;
 import com.weather.api.ResponseProvider;
-import com.weather.db.dao.CRUDDao;
-import com.weather.db.dao.impl.UserDaoImpl;
 import com.weather.db.model.User;
-import com.weather.handlers.Handler;
 import com.weather.models.iqair.Pollution;
 import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
-import com.weather.models.openweather.onecallapi.OneCallRoot;
-import com.weather.parser.Parser;
-import com.weather.requests.ApiRequest;
 import com.weather.service.UserService;
 import lombok.SneakyThrows;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @WebServlet(urlPatterns = {"/weather/*"})
@@ -107,32 +99,32 @@ public class WeatherRestServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-              try{
-                  String name = req.getParameter("name");
-                  String email = req.getParameter("email");
-                  Short country_id = Short.parseShort("country_id");
-                  Long city_id = Long.parseLong("city_id");
-                  UserService.addUser(new User(name,email),country_id,city_id);
-                  resp.sendRedirect(req.getContextPath());
-              }catch (Exception ex) {
-                  resp.setStatus(401);
-                  resp.getWriter().write("error 401, incorrect inserted user");
+        try {
+            String name = req.getParameter("name");
+            String email = req.getParameter("email");
+            Short country_id = Short.parseShort("country_id");
+            Long city_id = Long.parseLong("city_id");
+            UserService.addUser(new User(name, email), country_id, city_id);
+            resp.sendRedirect(req.getContextPath());
+        } catch (Exception ex) {
+            resp.setStatus(401);
+            resp.getWriter().write("error 401, incorrect inserted user");
         }
         // TODO Save user with city
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             int userId = Integer.parseInt(req.getParameter("user_id"));
             String name = req.getParameter("name");
             String email = req.getParameter("email");
             String country = req.getParameter("country");
             String city = req.getParameter("city");
-            User user = new User(userId,name,email,country,city);
+            User user = new User(userId, name, email, country, city);
             UserService.updateUser(user);
             resp.sendRedirect(req.getContextPath());
-        }catch (Exception e){
+        } catch (Exception e) {
             resp.setStatus(401);
             resp.getWriter().write("error 401, incorrect inserted user");
         }
@@ -145,5 +137,4 @@ public class WeatherRestServlet extends HttpServlet {
         System.out.println(set.size());
         return set.stream().findAny().get();
     }
-
 }

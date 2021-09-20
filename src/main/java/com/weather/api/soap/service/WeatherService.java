@@ -1,14 +1,12 @@
 package com.weather.api.soap.service;
 
 import com.weather.models.iqair.Pollution;
-import com.weather.models.openweather.onecallapi.Alert;
 import com.weather.models.openweather.onecallapi.Current;
 import com.weather.models.openweather.onecallapi.Daily;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import java.util.List;
 
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)

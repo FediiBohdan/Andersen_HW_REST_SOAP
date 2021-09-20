@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Daily{
+public class Daily {
     private String dt;
     private String sunrise;
     private String sunset;

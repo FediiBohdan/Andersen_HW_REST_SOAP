@@ -17,7 +17,6 @@ public class ApiRequestTest {
         apirequest = new ApiRequest();
     }
 
-
     ApiRequest apiRequestMock = mock(ApiRequest.class); // А теперь object для мокито
 
 

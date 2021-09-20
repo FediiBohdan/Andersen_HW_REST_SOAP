@@ -46,5 +46,4 @@ public class City {
         this.lon = lon;
     }
 
-
 }
