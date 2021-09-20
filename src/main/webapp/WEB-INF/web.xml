@@ -3,6 +3,12 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+  <listener>
+    <listener-class>
+      com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+    </listener-class>
+  </listener>
+
   <servlet>
     <servlet-name>WeatherRestServlet</servlet-name>
     <servlet-class>com.weather.api.rest.WeatherRestServlet</servlet-class>
@@ -12,4 +18,5 @@
     <servlet-name>WeatherRestServlet</servlet-name>
     <url-pattern>/test/*</url-pattern>
   </servlet-mapping>
+
 </web-app>

@@ -26,13 +26,13 @@ public class UserDaoImpl implements CRUDDao {
             "join andersen.Country s on u.country_id = s.id join andersen.City g on u.city_id = g.id where where " +
             "email=? and u.isdeleted=false";
     private static final String ALL_USERS_BY_ID="SELECT * FROM andersen.User order by id";
-    private static final String CREATE_USER="INSERT INTO andersen.User(name,\" +\n" +
-            "            \"email,country_id,city_id,dateOfLastUpdate,dateOfCreation,isDeleted)\" +\n" +
-            "            \"VALUES(?,?,?,?,?,?,?) returning id;";
+    private static final String CREATE_USER="INSERT INTO andersen.User(name," +
+            "email,country_id,city_id,dateOfLastUpdate,dateOfCreation,isDeleted)" +
+            "VALUES(?,?,?,?,?,?,?) returning id;";
     private static final String DELETE_USER_BY_ID="UPDATE andersen.User SET " +
             "isDeleted=TRUE WHERE id=? returning id;";
     private static final String UPDATE_USER="UPDATE andersen.User SET" +
-            "name=?, email=?, country_id=?, city_id=? WHERE id=? returning id;";
+            "name=?, email=?, country_id=?, city_id=?,dateOfLastUpdate=? WHERE id=? returning id;";
     private static final String ALL_COUNTRY_ORDERED_BY_NAME= "SELECT * FROM andersen.Country order by name;";
     private static final String FIND_CITIES_BY_COUNTRY_ORDERED_BY_NAME="SELECT * FROM andersen.City " +
             "where country_id=? order by name;";
@@ -148,6 +148,7 @@ public class UserDaoImpl implements CRUDDao {
             preparedStatement.setString(2,user.getEmail());
             preparedStatement.setShort(3,User.getCountries().get(user.getCountry()).getId());
             preparedStatement.setLong(4,User.getCities().get(user.getCity()).getId());
+            preparedStatement.setObject(5,LocalDateTime.now());
             int rowAffected =preparedStatement.executeUpdate();
             if (rowAffected>0) {
                 result="success";

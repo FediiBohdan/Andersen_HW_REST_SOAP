@@ -1,37 +1,52 @@
 package com.weather.api.soap.service;
 
+import com.weather.api.ResponseProvider;
+import com.weather.models.iqair.Pollution;
+import com.weather.models.openweather.onecallapi.Alert;
+import com.weather.models.openweather.onecallapi.Current;
+import com.weather.models.openweather.onecallapi.Daily;
 
-import com.weather.db.model.User;
-
+import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebService(endpointInterface = "com.weather.api.soap.service.WeatherService")
 public class WeatherServiceImpl implements WeatherService {
+    private final ResponseProvider responseProvider;
 
-
-    @Override
-    public String getCurrentForecastByCity(String city) {
-        return null;
+    public WeatherServiceImpl() {
+        this.responseProvider = new ResponseProvider();
     }
 
     @Override
+    @WebMethod
+    public Current getCurrentForecastByCity(String city, String units) {
+        return responseProvider.getCurrentForecast(city, units);
+    }
+
+    @Override
+    @WebMethod
     public String getYesterdayForecastByCity(String city) {
         return null;
     }
 
     @Override
-    public String getTomorrowForecastByCity(String city) {
-        return null;
+    @WebMethod
+    public Daily getTomorrowForecastByCity(String city, String units) {
+        return responseProvider.getTomorrow(city, units);
     }
 
-    @Override
-    public String getNationalWeatherAlerts(String city) {
-        return null;
-    }
+//    @Override
+//    @WebMethod
+//    public ArrayList<Alert> getNationalWeatherAlerts(String city, String units) {
+//        return responseProvider.getNationalWeatherAlerts(city, units);
+//    }
 
     @Override
-    public String getAirPollutionByIp(String city) {
-        return null;
+    @WebMethod
+    public Pollution getAirPollutionByIp(String city) {
+        return responseProvider.getAirPollutionByIp(city);
     }
 
     /*@Override
