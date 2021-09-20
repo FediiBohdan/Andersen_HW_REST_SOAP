@@ -26,9 +26,9 @@ public class UserDaoImpl implements CRUDDao {
             "join andersen.Country s on u.country_id = s.id join andersen.City g on u.city_id = g.id where where " +
             "email=? and u.isdeleted=false";
     private static final String ALL_USERS_BY_ID="SELECT * FROM andersen.User order by id";
-    private static final String CREATE_USER="INSERT INTO andersen.User(name,\" +\n" +
-            "            \"email,country_id,city_id,dateOfLastUpdate,dateOfCreation,isDeleted)\" +\n" +
-            "            \"VALUES(?,?,?,?,?,?,?) returning id;";
+    private static final String CREATE_USER="INSERT INTO andersen.User(name," +
+            "email,country_id,city_id,dateOfLastUpdate,dateOfCreation,isDeleted)" +
+            "VALUES(?,?,?,?,?,?,?) returning id;";
     private static final String DELETE_USER_BY_ID="UPDATE andersen.User SET " +
             "isDeleted=TRUE WHERE id=? returning id;";
     private static final String UPDATE_USER="UPDATE andersen.User SET" +
