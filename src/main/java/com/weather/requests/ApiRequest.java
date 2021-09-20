@@ -27,6 +27,10 @@ public class ApiRequest {
         this.client = HttpClient.newHttpClient();
     }
 
+    public ApiRequest() {
+        // Конструктор для тестов
+    }
+
     public OneCallRoot getOneCallResponse(String city, String units) {
         URI uri = null;
         HttpResponse<String> response = null;
