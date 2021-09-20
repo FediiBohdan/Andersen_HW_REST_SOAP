@@ -8,6 +8,7 @@ import com.weather.models.openweather.onecallapi.Daily;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebService(endpointInterface = "com.weather.api.soap.service.WeatherService")
@@ -38,14 +39,14 @@ public class WeatherServiceImpl implements WeatherService {
 
 //    @Override
 //    @WebMethod
-//    public List<Alert> getNationalWeatherAlerts(String city, String units) {
+//    public ArrayList<Alert> getNationalWeatherAlerts(String city, String units) {
 //        return responseProvider.getNationalWeatherAlerts(city, units);
 //    }
 
     @Override
     @WebMethod
     public Pollution getAirPollutionByIp(String city) {
-        return getAirPollutionByIp(city);
+        return responseProvider.getAirPollutionByIp(city);
     }
 
     /*@Override
